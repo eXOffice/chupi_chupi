@@ -17,10 +17,10 @@ class _ChatScreenState extends State<ChatScreen> {
           IconButton(
               icon: Icon(Icons.close),
               onPressed: () {
-                //Implement logout functionality
+                //for Implementing logout functionality
               }),
         ],
-        title: Text('⚡️Chat'),
+        title: Text('চুপি  চুপি'), //Text('⚡️Chat'),
         backgroundColor: Colors.lightBlueAccent,
       ),
       body: SafeArea(
@@ -43,7 +43,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   ),
                   TextButton(
                     onPressed: () {
-                      //Implement send functionality.
+                      //for Implementing send functionality.
                     },
                     child: Text(
                       'Send',

@@ -9,11 +9,30 @@ class WelcomeScreen extends StatefulWidget {
   State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+      upperBound: 100,
+    );
+    controller.forward();
+    controller.addListener(() {
+      setState(() {});
+      print(controller.value);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.purple.withOpacity(controller.value),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -37,7 +56,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     ),
                   ),
                   Text(
-                    'চুপি  চুপি',
+                    'চুপি  চুপি ${controller.value.toInt()}',
                     style: TextStyle(
                       color: Colors.black26,
                       fontSize: 49.0,
